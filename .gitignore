@@ -1,0 +1,7 @@
+# Commonly ignored Node.js files
+node_modules
+.env
+
+# npm Compatibility
+package-lock.json
+
