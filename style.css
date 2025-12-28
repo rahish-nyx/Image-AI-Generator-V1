@@ -1,10 +1,20 @@
 /* ================================
    GLOBAL STYLES
 ================================ */
-body {
-    padding: 0;
-    margin: 0;
+* {
     box-sizing: border-box;
+}
+
+html, body {
+    /*height: 100%;*/
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f4f4f4;
 }
@@ -15,7 +25,7 @@ body {
 .navbar {
     width: 100%;
     padding: 15px 0;
-    background-color: #318C46;
+    background-color: #00000099;
     text-align: center;
 }
 
@@ -33,29 +43,48 @@ body {
 /* ================================
    MAIN LAYOUT
 ================================ */
+/* MAIN AREA */
 .main-container {
+  /*  flex: 1;    */
+    position: relative;          /* parent for absolute video */
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 40px;
+    margin-bottom: 40px;
+    overflow: hidden;
+    min-height: 80vh;
 }
 
+/* VIDEO BEHIND */
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    filter: blur(8px) brightness(0.6);
+    pointer-events: none;
+    z-index: 0;                 /* always lowest layer */
+}
+
+/* TEXT BOX ABOVE */
 .container {
-    padding: 20px;
-    border: 2px solid #ccc;
+    position: relative;         /* makes z-index work */
+    z-index: 1;                /* higher than video */
     width: 50%;
+    max-width: 600px;
+    padding: 20px 30px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #ffffff;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #000;
 }
-
 /* ================================
    HEADINGS
 ================================ */
@@ -65,7 +94,7 @@ body {
 }
 
 .heading {
-    color: #318C46;
+    color: #2a59f399;
 }
 
 .sub-heading {
@@ -92,7 +121,7 @@ body {
     border-color: #318C46;
 }
 
-#prompt-text{
+#prompt-text {
     font-size: 0.8rem;
     font-style: italic;
 }
@@ -101,7 +130,7 @@ body {
    BUTTON
 ================================ */
 .image-generate-btn {
-    background-color: #318C46;
+    background-color: #15242b;
     cursor: pointer;
     color: #fff;
     font-weight: bold;
@@ -132,6 +161,45 @@ body {
     height: 350px;
     border-radius: 8px;
     object-fit: cover;
+}
+
+/* ================================
+   FOOTER
+================================ */
+.site-footer {
+    position: relative;
+    background-image: url("footer-bg.jpg/i3.jpg");  /* change to your file name/path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0;
+    margin-top: auto;
+}
+
+/* dark overlay for readable text */
+.site-footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #ffffff;
+    font-size: 13px;
+}
+
+.footer-content p {
+    margin: 4px 0;
+    letter-spacing: 0.3px;
 }
 
 /* ================================
