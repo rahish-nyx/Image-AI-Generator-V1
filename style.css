@@ -168,7 +168,7 @@ body {
 ================================ */
 .site-footer {
     position: relative;
-    background-image: url("footer-bg.jpg/i3.jpg");  /* change to your file name/path */
+    background-image: url("footer-bg.jpg/i3.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -203,7 +203,7 @@ body {
 }
 
 /* ================================
-   LOADING ANIMATION - ADD THIS
+   LOADING ANIMATION
 ================================ */
 .loader {
     display: inline-block;
