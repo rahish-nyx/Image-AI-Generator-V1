@@ -46,19 +46,16 @@
 
                 <!-- Form to input text and generate image -->
                 <form class="my-form">
-                   
                     <input id="input-value" placeholder="Enter some text..." type="text"
-                        class="form-input form-controls" >
+                        class="form-input form-controls">
 
-                
-                    <button type="submit" class="image-generate-btn 
-                                   form-controls">
+                    <button type="submit" id="generateBtn" class="image-generate-btn form-controls">
                         Generate Image
+                        <span id="loader" class="loader" style="display: none;"></span>
                     </button>
                 </form>
             </div>
 
-            
             <div id="images-visible" class="image-container">
                 <img id="generated-image" class="my-generated-image" src='' alt="AI Generated Image">
                 <p id="prompt-text"></p>
